@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "Blog"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title",
+      "required": true
+    },
+    "FeaturedImage": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Author": {
+      "type": "enumeration",
+      "enum": [
+        "Kevin",
+        "Ornella",
+        "Don Aime"
+      ],
+      "default": "Kevin",
+      "required": true
+    },
+    "PublishDate": {
+      "type": "datetime"
+    },
+    "Shortsummary": {
+      "type": "text"
+    },
+    "Content": {
+      "type": "blocks",
+      "required": true
+    },
+    "Categories": {
+      "type": "enumeration",
+      "enum": [
+        "Tech",
+        "Youth Empowerment",
+        "Education"
+      ],
+      "default": "Youth Empowerment",
+      "required": true
+    },
+    "Tags": {
+      "type": "enumeration",
+      "enum": [
+        "We will add them"
+      ]
+    }
+  }
+}
