@@ -4,40 +4,31 @@
   "info": {
     "singularName": "blog",
     "pluralName": "blogs",
-    "displayName": "Blog"
+    "displayName": "Blog",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true
     },
     "Slug": {
       "type": "uid",
-      "targetField": "Title",
-      "required": true
+      "required": true,
+      "targetField": "title"
     },
     "FeaturedImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
-    },
-    "Author": {
-      "type": "enumeration",
-      "enum": [
-        "Kevin",
-        "Ornella",
-        "Don Aime"
-      ],
-      "default": "Kevin",
-      "required": true
+      ]
     },
     "PublishDate": {
       "type": "datetime"
@@ -45,7 +36,7 @@
     "Shortsummary": {
       "type": "text"
     },
-    "Content": {
+    "content": {
       "type": "blocks",
       "required": true
     },
@@ -54,7 +45,12 @@
       "enum": [
         "Tech",
         "Youth Empowerment",
-        "Education"
+        "Education",
+        "events",
+        "insights",
+        "impact",
+        "news",
+        "success stories"
       ],
       "default": "Youth Empowerment",
       "required": true
@@ -64,6 +60,18 @@
       "enum": [
         "We will add them"
       ]
+    },
+    "excerpt": {
+      "type": "string"
+    },
+    "readTime": {
+      "type": "string",
+      "default": "5 min read"
+    },
+    "teams": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team.team"
     }
   }
 }

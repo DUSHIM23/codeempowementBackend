@@ -4,7 +4,8 @@
   "info": {
     "singularName": "project",
     "pluralName": "projects",
-    "displayName": "Projects"
+    "displayName": "Projects",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,15 +20,16 @@
       "type": "uid",
       "targetField": "Title"
     },
-    "ThumbnailImage": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Description": {
       "type": "text"
@@ -42,6 +44,25 @@
         "Completed",
         "In Progress"
       ]
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "year": {
+      "type": "biginteger",
+      "default": "2025"
+    },
+    "location": {
+      "type": "string"
+    },
+    "projectstatus": {
+      "type": "enumeration",
+      "enum": [
+        "ongoing",
+        "completed ",
+        "upcoming"
+      ],
+      "default": "upcoming"
     }
   }
 }
