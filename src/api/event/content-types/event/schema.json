@@ -53,7 +53,7 @@
     "link": {
       "type": "string"
     },
-    "time": {
+    "start_time": {
       "type": "time"
     },
     "location": {
@@ -62,6 +62,19 @@
     "slug": {
       "type": "uid",
       "targetField": "title"
+    },
+    "agenda_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::agenda-item.agenda-item"
+    },
+    "speakers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::speaker.speaker"
+    },
+    "end_time": {
+      "type": "time"
     }
   }
 }

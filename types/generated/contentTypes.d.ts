@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiAgendaItemAgendaItem extends Struct.CollectionTypeSchema {
   collectionName: 'agenda_items';
   info: {
+    description: '';
     displayName: 'AgendaItem';
     pluralName: 'agenda-items';
     singularName: 'agenda-item';
@@ -391,6 +392,7 @@ export interface ApiAgendaItemAgendaItem extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    speaker: Schema.Attribute.Relation<'oneToOne', 'api::speaker.speaker'>;
     time: Schema.Attribute.String;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -462,12 +464,17 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    agenda_items: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::agenda-item.agenda-item'
+    >;
     attendees: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     date: Schema.Attribute.DateTime;
     description: Schema.Attribute.Text;
+    end_time: Schema.Attribute.Time;
     gallery: Schema.Attribute.Media<'images' | 'files', true>;
     GalleryImage: Schema.Attribute.Media<'images', true> &
       Schema.Attribute.Required;
@@ -478,7 +485,8 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     location: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
-    time: Schema.Attribute.Time;
+    speakers: Schema.Attribute.Relation<'oneToMany', 'api::speaker.speaker'>;
+    start_time: Schema.Attribute.Time;
     title: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<
       ['workshop', 'webinar', 'conference', 'hackathon']
@@ -578,6 +586,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     location: Schema.Attribute.String;
+    partners: Schema.Attribute.Relation<'oneToMany', 'api::partner.partner'>;
     projectstatus: Schema.Attribute.Enumeration<
       ['ongoing', 'completed ', 'upcoming']
     > &
@@ -585,9 +594,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     RoleContribution: Schema.Attribute.Text;
     Slug: Schema.Attribute.UID<'Title'>;
-    StatusProgress: Schema.Attribute.Enumeration<
-      ['No started', 'Completed', 'In Progress']
-    >;
+    teams: Schema.Attribute.Relation<'oneToMany', 'api::team.team'>;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "agenda-item",
     "pluralName": "agenda-items",
-    "displayName": "AgendaItem"
+    "displayName": "AgendaItem",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,11 @@
     },
     "description": {
       "type": "text"
+    },
+    "speaker": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::speaker.speaker"
     }
   }
 }

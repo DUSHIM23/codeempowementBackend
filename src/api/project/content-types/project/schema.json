@@ -37,14 +37,6 @@
     "RoleContribution": {
       "type": "text"
     },
-    "StatusProgress": {
-      "type": "enumeration",
-      "enum": [
-        "No started",
-        "Completed",
-        "In Progress"
-      ]
-    },
     "content": {
       "type": "blocks"
     },
@@ -63,6 +55,16 @@
         "upcoming"
       ],
       "default": "upcoming"
+    },
+    "teams": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team.team"
+    },
+    "partners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::partner.partner"
     }
   }
 }
