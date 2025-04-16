@@ -65,6 +65,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::partner.partner"
+    },
+    "impacts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::impact.impact"
     }
   }
 }
