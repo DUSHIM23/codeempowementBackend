@@ -58,7 +58,14 @@
     "Tags": {
       "type": "enumeration",
       "enum": [
-        "We will add them"
+        "workshop",
+        "women in tech",
+        "tech industry",
+        "education",
+        "gender equality",
+        "rural education",
+        "digital literacy",
+        "Rwanda"
       ]
     },
     "excerpt": {

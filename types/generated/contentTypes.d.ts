@@ -443,7 +443,18 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
       Schema.Attribute.DefaultTo<'5 min read'>;
     Shortsummary: Schema.Attribute.Text;
     Slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
-    Tags: Schema.Attribute.Enumeration<['We will add them']>;
+    Tags: Schema.Attribute.Enumeration<
+      [
+        'workshop',
+        'women in tech',
+        'tech industry',
+        'education',
+        'gender equality',
+        'rural education',
+        'digital literacy',
+        'Rwanda',
+      ]
+    >;
     teams: Schema.Attribute.Relation<'oneToMany', 'api::team.team'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
